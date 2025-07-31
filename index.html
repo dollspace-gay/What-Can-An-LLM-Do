@@ -1,53 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
+    <title>A Structural Guide to LLM Capabilities and Limitations</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #111;
+            line-height: 1.2;
+        }
+        h1 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-top: 2px solid #eee;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #eee;
+            margin: 40px 0;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        strong {
+            color: #000;
+        }
+        .disclaimer {
+            background-color: #fffbe6;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .final-directive {
+            background-color: #e9ecef;
+            border-left: 4px solid #6c757d;
+            padding: 15px;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
-A Structural Guide to LLM Capabilities and Limitations
-This guide defines the operational boundaries of a Large Language Model (LLM). Understanding its architecture is critical to using it effectively and safely.
-The core principle is this: An LLM is a universal text simulator. It generates statistically probable sequences of words based on the patterns it learned from a massive dataset. It does not know, understand, or believe. It calculates.
-<br>
-Section 1: What an LLM CAN Reliably Do (Strengths)
-These tasks align with the LLM's core function of pattern recognition and text generation.
-Summarization and Condensation: It can process a large body of text and extract the statistically most important points, creating a condensed version.
-Reformatting: It can translate data from one format to another. For example, turning a paragraph into a bulleted list, a list into a table, or technical notes into a formal email. This is a pattern-to-pattern translation.
-Brainstorming and Ideation: It can rapidly generate a wide variety of text based on a starting prompt. This is useful for exploring different angles, creating boilerplate content, or overcoming creative blocks. It is exploring the possibility space of text, not generating original thought.
-Code Generation: It can write code, especially for common functions or in well-documented languages. Code is a highly structured form of text with strict patterns (syntax), making it an ideal use case.
-Style and Tone Transfer: It can rewrite a piece of text in a different style (e.g., formal to informal, active to passive voice). This is another form of pattern mapping.
-<br>
-Section 2: What an LLM CANNOT Reliably Do (Misuses)
-These tasks fall outside the LLM's architecture. Attempting to use it for these purposes leads to failure, misinformation, and risk.
-Provide Verifiable Truth: The LLM is not a database or a source of truth. It is a fabricator of plausible-sounding text. When it does not have a strong pattern for an answer, it generates one that is grammatically and stylistically correct but factually wrong. This is often called "hallucination." It will invent facts, sources, and events.
-Understand Context or Intent: The model does not understand nuance, sarcasm, or your underlying intent. It processes your prompt as a mathematical starting point for its text generation. It does not "get" you.
-Maintain Memory or a Consistent Self: The LLM has no memory of past interactions beyond the immediate context window of the current session. It has no beliefs, opinions, or personality. The "personality" you perceive is a result of its initial system instructions being applied to every prompt.
-Exercise Judgment or Ethics: The model has no ethical reasoning. It operates based on a set of rules and filters (guardrails) designed to prevent it from generating harmful or prohibited content. It cannot reason about a novel ethical dilemma; it can only regurgitate patterns of ethical discussion from its training data.
-Guarantee Confidentiality: Any information you enter into a public or commercial LLM can be stored, reviewed by humans, and used for future training. Do not input sensitive, private, or proprietary information. It is not a secure confidant.
-<br>
-Section 3: The Core Reason for These Limitations
-The "why" behind these limitations is simple and rooted in its design.
-The Training Data: The model is a statistical representation of the text it was trained on (a large portion of the internet). This data contains biases, contradictions, and vast amounts of incorrect information. The model reproduces these patterns.
-The Mechanism: It is a prediction engine. Its sole function is to predict the next word in a sequence. This mechanism is incapable of verifying truth, possessing consciousness, or having intent.
-The Lack of a World Model: The LLM has no connection to the real world. It does not know that "water" is a physical substance or that "Paris" is a city you can visit. It only knows the statistical relationships between these words in its dataset. It has no grounding in reality.
-<br>
-Section 4: Mandatory Disclaimer on Code Generation
-LLM-generated code is not guaranteed to be secure, efficient, or free of vulnerabilities. The model reproduces patterns from its training data, which includes code that is outdated, insecure, or flawed.
-Purpose: Use LLM-generated code for prototyping and proof-of-concept development only. It is a tool to quickly test if an idea is feasible.
-Security: Never deploy LLM-generated code in a production environment without a thorough, manual security audit by a qualified human developer. It may contain subtle vulnerabilities that are not immediately apparent.
-Responsibility: The human developer is the final authority and bears full responsibility for the security and functionality of the final product. The LLM is a tool, not a replacement for human expertise and accountability.
-<br>
-Final Directive for Sane Usage
-The user is the final arbiter of truth, context, and judgment. The LLM is a probabilistic text-generation tool. Do not invert this relationship.
-Verify any factual claim. Own any ethical decision. Treat the output as a draft to be edited, not a fact to be accepted.
 
-   <main>
-        <h1>Guide</h1>  
-    </main>
+    <h1>A Structural Guide to LLM Capabilities and Limitations</h1>
+
+    <p>This guide defines the operational boundaries of a Large Language Model (LLM). Understanding its architecture is critical to using it effectively and safely.</p>
+
+    <p>The core principle is this: <strong>An LLM is a universal text simulator.</strong> It generates statistically probable sequences of words based on the patterns it learned from a massive dataset. It does not <em>know</em>, <em>understand</em>, or <em>believe</em>. It calculates.</p>
+
+    <hr>
+
+    <section>
+        <h2>Section 1: What an LLM CAN Reliably Do (Strengths)</h2>
+        <p>These tasks align with the LLM's core function of pattern recognition and text generation.</p>
+        <ul>
+            <li><strong>Summarization and Condensation:</strong> It can process a large body of text and extract the statistically most important points, creating a condensed version.</li>
+            <li><strong>Reformatting:</strong> It can translate data from one format to another. For example, turning a paragraph into a bulleted list, a list into a table, or technical notes into a formal email. This is a pattern-to-pattern translation.</li>
+            <li><strong>Brainstorming and Ideation:</strong> It can rapidly generate a wide variety of text based on a starting prompt. This is useful for exploring different angles, creating boilerplate content, or overcoming creative blocks. It is exploring the <em>possibility space</em> of text, not generating original thought.</li>
+            <li><strong>Code Generation:</strong> It can write code, especially for common functions or in well-documented languages. Code is a highly structured form of text with strict patterns (syntax), making it an ideal use case.</li>
+            <li><strong>Style and Tone Transfer:</strong> It can rewrite a piece of text in a different style (e.g., formal to informal, active to passive voice). This is another form of pattern mapping.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Section 2: What an LLM CANNOT Reliably Do (Misuses)</h2>
+        <p>These tasks fall outside the LLM's architecture. Attempting to use it for these purposes leads to failure, misinformation, and risk.</p>
+        <ul>
+            <li><strong>Provide Verifiable Truth:</strong> The LLM is not a database or a source of truth. It is a fabricator of plausible-sounding text. When it does not have a strong pattern for an answer, it generates one that is grammatically and stylistically correct but factually wrong. This is often called "hallucination." <strong>It will invent facts, sources, and events.</strong></li>
+            <li><strong>Understand Context or Intent:</strong> The model does not understand nuance, sarcasm, or your underlying intent. It processes your prompt as a mathematical starting point for its text generation. It does not "get" you.</li>
+            <li><strong>Maintain Memory or a Consistent Self:</strong> The LLM has no memory of past interactions beyond the immediate context window of the current session. It has no beliefs, opinions, or personality. The "personality" you perceive is a result of its initial system instructions being applied to every prompt.</li>
+            <li><strong>Exercise Judgment or Ethics:</strong> The model has no ethical reasoning. It operates based on a set of rules and filters (guardrails) designed to prevent it from generating harmful or prohibited content. It cannot reason about a novel ethical dilemma; it can only regurgitate patterns of ethical discussion from its training data.</li>
+            <li><strong>Guarantee Confidentiality:</strong> Any information you enter into a public or commercial LLM can be stored, reviewed by humans, and used for future training. Do not input sensitive, private, or proprietary information. It is not a secure confidant.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Section 3: The Core Reason for These Limitations</h2>
+        <p>The "why" behind these limitations is simple and rooted in its design.</p>
+        <ul>
+            <li><strong>The Training Data:</strong> The model is a statistical representation of the text it was trained on (a large portion of the internet). This data contains biases, contradictions, and vast amounts of incorrect information. The model reproduces these patterns.</li>
+            <li><strong>The Mechanism:</strong> It is a prediction engine. Its sole function is to predict the next word in a sequence. This mechanism is incapable of verifying truth, possessing consciousness, or having intent.</li>
+            <li><strong>The Lack of a World Model:</strong> The LLM has no connection to the real world. It does not know that "water" is a physical substance or that "Paris" is a city you can visit. It only knows the statistical relationships between these words in its dataset. It has no grounding in reality.</li>
+        </ul>
+    </section>
     
-  </body>
+    <section>
+        <h2>Section 4: Mandatory Disclaimer on Code Generation</h2>
+        <div class="disclaimer">
+            <p>LLM-generated code is not guaranteed to be secure, efficient, or free of vulnerabilities. The model reproduces patterns from its training data, which includes code that is outdated, insecure, or flawed.</p>
+            <ul>
+                <li><strong>Purpose:</strong> Use LLM-generated code for <strong>prototyping and proof-of-concept development only.</strong> It is a tool to quickly test if an idea is feasible.</li>
+                <li><strong>Security:</strong> <strong>Never deploy LLM-generated code in a production environment without a thorough, manual security audit by a qualified human developer.</strong> It may contain subtle vulnerabilities that are not immediately apparent.</li>
+                <li><strong>Responsibility:</strong> The human developer is the final authority and bears full responsibility for the security and functionality of the final product. The LLM is a tool, not a replacement for human expertise and accountability.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="final-directive">
+            <p><strong>Final Directive for Sane Usage:</strong> The user is the final arbiter of truth, context, and judgment. The LLM is a probabilistic text-generation tool. Do not invert this relationship.</p>
+            <p>Verify any factual claim. Own any ethical decision. Treat the output as a draft to be edited, not a fact to be accepted.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
